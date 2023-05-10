@@ -6,8 +6,8 @@
 
 (1) 빅스비 버튼 설정에서 사진과같이 선택
 
-![usage_0](./docs/usage_0)
+![usage_0](./docs/usage_0.jpg)
 
 (2) 해당 앱을 등록해준다.
 
-![usage_1](./docs/usage_1)
+![usage_1](./docs/usage_1.jpg)
