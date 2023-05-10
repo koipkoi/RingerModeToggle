@@ -1,0 +1,74 @@
+plugins {
+  id 'com.android.application'
+  id 'org.jetbrains.kotlin.android'
+}
+
+android {
+  namespace 'com.koipkoi.ringermodetoggle'
+  compileSdk rootProject.compileSdk
+  signingConfigs {
+    config {
+      storeFile file('app_key.jks')
+      storePassword '123456'
+      keyAlias '123456'
+      keyPassword '123456'
+    }
+  }
+  defaultConfig {
+    applicationId 'com.koipkoi.ringermodetoggle'
+    minSdk rootProject.minSdk
+    targetSdk rootProject.targetSdk
+    versionCode 1
+    versionName '1.0.0'
+    archivesBaseName "RingerModeToggle-v${versionName}"
+    signingConfig signingConfigs.config
+    testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+  }
+  bundle {
+    language {
+      enableSplit false
+    }
+  }
+  buildFeatures {
+    dataBinding true
+  }
+  buildTypes {
+    debug {
+      debuggable true
+      zipAlignEnabled false
+      minifyEnabled false
+      shrinkResources false
+      signingConfig signingConfigs.config
+    }
+    release {
+      debuggable false
+      zipAlignEnabled true
+      minifyEnabled true
+      shrinkResources true
+      signingConfig signingConfigs.config
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  packagingOptions {
+    jniLibs {
+      useLegacyPackaging true
+    }
+  }
+  kotlinOptions {
+    jvmTarget = '1.8'
+  }
+}
+
+dependencies {
+  testImplementation 'junit:junit:4.13.2'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+  androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+  implementation 'androidx.core:core-ktx:1.10.0'
+  implementation 'androidx.appcompat:appcompat:1.6.1'
+  implementation 'com.google.android.material:material:1.8.0'
+}
